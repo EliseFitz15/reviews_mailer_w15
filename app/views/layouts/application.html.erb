@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pokemon Reviews</title>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <nav class="top-bar">
+    <ul class="title-area">
+      <li class="name">
+        <h1><a href="/">Pokemon Reviews</a></h1>
+      </li>
+    </ul>
+
+    <section class="top-bar-section">
+      <ul class="right">
+        <%- if current_user -%>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "Hi #{current_user.first_name}", edit_user_registration_path %></li>
+        <%- else -%>
+          <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <%- end -%>
+      </ul>
+    </section>
+  </nav>
+
+    <div class="row">
+      <% flash.keys.each do |type| %>
+        <% flash[type].split(":( ").each do |f| %>
+          <div data-alert class="flash <%= type %> alert-box radius">
+              <%= f %>
+            <a href="#" class="close">&times;</a>
+          </div>
+        <% end %>
+      <% end %>
+    <%= yield %>
+  </div>
+
+  <%= javascript_include_tag 'application' %>
+  <%= yield :extra_footer %>
+</body>
+</html>

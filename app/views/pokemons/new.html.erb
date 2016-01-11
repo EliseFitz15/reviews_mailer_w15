@@ -1,0 +1,24 @@
+<h1>Add your Pokemon to your Pokedex</h1>
+
+<div class="row">
+<%= form_for @pokemon do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :ability %>
+  <%= f.text_field :ability %>
+
+  <%= f.label :poketype %>
+  <%= f.text_field :poketype %>
+
+  <%= f.label :strength %>
+  <%= f.text_field :strength %>
+
+  <%= f.label :age %>
+  <%= f.text_field :age %>
+
+  <%= f.submit "Add Pokemon", class: 'button' %>
+
+<% end %>
+</div>

@@ -1,0 +1,13 @@
+<div class="clearfix">
+
+<h1 class="left">Pokedex</h1>
+<div class="right add-new">
+  <%= link_to "Add New Pokemon to your Pokedex", new_pokemon_path, class: "button" %>
+</div>
+</div>
+
+<% @pokemons.each do |pokemon| %>
+<div class="panel">
+  <%= link_to pokemon.name, pokemon_path(pokemon) %>
+</div>
+<% end %>
