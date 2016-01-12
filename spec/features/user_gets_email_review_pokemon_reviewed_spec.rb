@@ -7,7 +7,6 @@ feature "As a user
 I want to get notified via email
 when someone reviews my pokemon" do
   scenario "Email sent if someone reviews a pokemon successfully" do
-    user = FactoryGirl.create(:user)
     pokemon = FactoryGirl.create(:pokemon)
 
     sign_in

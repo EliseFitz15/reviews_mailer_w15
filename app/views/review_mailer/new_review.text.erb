@@ -1,0 +1,8 @@
+Hello <%= @review.pokemon.user.first_name %>
+
+<%= @review.user.first_name %> has left a new review for your pokemon <%= @review.pokemon.name %>.
+
+You can checkout the review <%= link_to 'here', pokemon_url(@review.pokemon) %>
+
+Gotta catch 'em all!
+- Pokemaster Commission
